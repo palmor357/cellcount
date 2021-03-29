@@ -1,9 +1,21 @@
-   .btncount{
+   			.btncount{
 			        font-size:9px;
 			        font-family:Verdana,Helvetica;
 			        font-weight:bold;
 			        color:white;
 			        background:#638cb5;
+			        border:2px;
+			        border-style: solid;
+			        border-color: #000000 #000000;
+			        width:73px;
+			        height:60px;
+			       }
+ 			.btncountbaso{
+			        font-size:9px;
+			        font-family:Verdana,Helvetica;
+			        font-weight:bold;
+			        color:white;
+			        background:url("../images/baso.png") no-repeat scroll 0 0 transparent;
 			        border:2px;
 			        border-style: solid;
 			        border-color: #000000 #000000;
