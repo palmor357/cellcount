@@ -20,5 +20,718 @@
 
     	</head>
 	<body>
+			<div id="mySidenav" class="sidenav">
+			<ul>
+				<li><a  href="#"><i class="glyphicon glyphicon-cog"></i> Advanced</a>
+					<ul>
+						<li><a id="btnReti" href="#">Reticulocitos</a></li>
+					</ul>
+				</li>
+				<li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></li>
+				<li><a href="#" id="About"><i class="glyphicon glyphicon-user"></i> About</a></li>
+				<li><a href="mailto:palmor357@gmail.com?&subject=Contacto"  target="_blank" id="Contacto"> <i class="glyphicon glyphicon-envelope"></i> Contacto</a></li>
+				<li><a id="btnCam"><i class="glyphicon glyphicon-camera"></i> Cámara <br>(en desarrollo)</a>
+						<script type="text/javascript">
+							var device = navigator.userAgent
+							if (device.match(/Iphone/i) || device.match(/Ipod/i) || device.match(/Android/i) || device.match(/J2ME/i) || device.match(/BlackBerry/i) || device.match(/iPhone|iPad|iPod/i) || device.match(/Opera Mini/i) || device.match(/IEMobile/i) || device.match(/Mobile/i) || device.match(/Windows Phone/i) || device.match(/windows mobile/i) || device.match(/windows ce/i) || device.match(/webOS/i) || device.match(/palm/i) || device.match(/bada/i) || device.match(/series60/i) || device.match(/nokia/i) || device.match(/symbian/i) || device.match(/HTC/i))
+							{
+								document.getElementById("btnCam").style.display= "block";
+							} else {
+								document.getElementById("btnCam").style.display= "none";
+							}
+						</script>
+				</li>
+			</ul>
+		</div>
+		<div id="main">		
+			<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Contador Hematologico.</span>
+			<!-- Site Code goes here! -->
+			<div align="left">
+				<table style="text-align:center;">
+					<tr>
+							<th><h1>Total&nbsp;</h1></th>
+							<th><h1><div id="TotalCount">0</div></h1></th>
+						<tr>
+							<td>
+								<p>Recuento Máximo&nbsp;</p>
+							</td>
+							<td>
+							    <select id="MaxCount">
+								  <option value="100">100</option>
+								  <option value="50">50</option>
+								  <option value="200">200</option>
+								  <option value="500">500</option>
+								  <option value="1000">1000</option>
+								</select>
+							</td>
+							
+						</tr>
+						
+					</tr>
+				</table>
+				<div id="dHTO" style="display:none;">
+				<table>
+						<tr>
+							
+								<td>
+			                      <p>Hematocrito &nbsp;</p> 
+								</td>
+								<td><input type="number" id="HTO" min="1" max="99" required="required" placeholder="1-99 %">
+								</td>
+						</tr>
+				</table>
+				</div>
+			</div> 
+			<div id="webcam" style="display:none; overflow-x:auto;" align="left">
+				<div>&nbsp;</div>
+				<div id='botonera'>
+					<table>
+						<tr>
+							<th><input id='btnhide' type='button' value = 'X' class="btncapt"></input></th>
+							<th><label class="fileContainer"> <i class="glyphicon glyphicon-camera"> Snapshot</i><input type="file" accept="image/*" capture="camera" id="camera" class=""></label></th>
+						</tr>
+						<tr>
+							<th>&nbsp;</th>
+							<th><img id="frame" width="128" height="128" class="rotate90"></th>
+						</tr>
+					</table>
+				    
+				    <style type="text/css">
+					.rotate90 {
+							    -webkit-transform: rotate(90deg);
+							    -moz-transform: rotate(90deg);
+							    -o-transform: rotate(90deg);
+							    -ms-transform: rotate(90deg);
+							    transform: rotate(90deg);
+                               }
+                    .btncapt {
+								    background: #333;
+								    color: #FFF;
+								    border-radius: 4px;
+								    border: 0;
+								    padding: 10px 14px;
+								}
+					.fileContainer {
+									    overflow: hidden;
+									    position: relative;
+									}
+
+					.fileContainer [type=file] {
+									    cursor: inherit;
+									    display: block;
+									    font-size: 999px;
+									    filter: alpha(opacity=0);
+									    min-height: 100%;
+									    min-width: 100%;
+									    opacity: 0;
+									    position: absolute;
+									    right: 0;
+									    text-align: right;
+									    top: 0;
+									}
+
+									/* Example stylistic flourishes */
+
+					.fileContainer {
+									    background: #333;
+								    color: #FFF;
+								    border-radius: 4px;
+								    border: 0;
+								    padding: 10px 14px;	
+									}
+
+					.fileContainer [type=file] {
+									    cursor: pointer;
+									}
+									}
+                    </style>
+                    <script type="text/javascript">
+                          var camera = document.getElementById('camera');
+                          var frame = document.getElementById('frame');
+                                                
+                          camera.addEventListener('change', function(e) {
+                            var file = e.target.files[0]; 
+                            // Do something with the image file.
+                            frame.src = URL.createObjectURL(file);
+                          });
+                    </script>
+				</div>
+			</div>
+			<div id="btn" class="TotalCount" align="left">
+				<button type="button" id="btnBaso" class="btncount">Basofilo</button>
+				<button type="button" id="btnEos" class="btncount">Eosinófilos</button>
+				<button type="button" id="btnMie" class="btncount">Mielocitos</button>
+				<button type="button" id="btnJuv" class="btncount">Juveniles</button>
+				<button type="button" id="btnBac" class="btncount">Baciliformes</button>
+				<button type="button" id="btnNeu" class="btncount">Neutrófilos</button>
+				<button type="button" id="btnLin" class="btncount">Linfocitos</button>
+				<button type="button" id="btnMon" class="btncount">Monocitos</button>
+				<button type="button" id="btnPlas" class="btncount">Plasmocitos</button>
+				<button type="button" id="btnBla" class="btncount">Blastos</button>
+				<button type="button" id="btneBla" class="btncount">Eritroblastos</button>
+			</div>
+			<div id="btnreticu" class="TotalCount" align="left" style="display:none;">
+				<button type="button" id="btnEritro" class="btncount">Eritrocito</button>
+				<button type="button" id="btnReticul" class="btncount">Reticulocito</button>
+				<button type="button" id="btneBlasto" class="btncount">Eritroblasto</button>
+			</div>
+				<div id="IPR" align="left" style="display:none;">
+					<table>
+						<th>
+                                                        <td></td>
+                                                        
+                                                        <td><p>&nbsp;&nbsp;&nbsp;Interpretación</p></td>                                                 
+						</th>
+						<tr>
+							<td>
+								<p>Valor IPR corregido = </p>
+
+							</td>
+							<td>
+								<div id="resIPR"></div>
+							</td>
+                                                        <td><p>&nbsp;&nbsp;&nbsp;IPR &#62; 3 significa un aumento de la regeneración medular <br>&nbsp;&nbsp;&nbsp;IPR &#60; 2 es índice de escasa regeneración medular. </p></td>
+						</tr>
+					</table>
+
+				</div>
+			<div>&nbsp;</div>
+			<div>&nbsp;</div>
+			<div id="RecTable" style="overflow-x:auto;" align="left">
+				<div><h3>Resultados</h3></div>
+				<div id= "Table1" style="display:block;">
+				<table  class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+				style='border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+				mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
+					<tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+						<td width=113 valign=top style='width:84.65pt;border:none;border-bottom:solid windowtext 1.0pt;
+						mso-border-bottom-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><span style='font-size:10.0pt;font-family:"Times New Roman","serif";
+						mso-fareast-font-family:SimSun;mso-fareast-language:ES-CL'><o:p>&nbsp;</o:p></span></p>
+						</td>
+						<td width=73 valign=top style='width:55.05pt;border:none;border-bottom:solid windowtext 1.0pt;
+						mso-border-bottom-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><b style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt;
+						font-family:"Times New Roman","serif";mso-fareast-font-family:SimSun;
+						mso-fareast-language:ES-CL'><o:p>&nbsp;</o:p></span></b></p>
+						</td>
+						<td width=85 valign=top style='width:64.05pt;border:none;border-bottom:solid windowtext 1.0pt;
+						mso-border-bottom-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><b style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt;
+						font-family:"Times New Roman","serif";mso-fareast-font-family:SimSun;
+						mso-fareast-language:ES-CL'><o:p>&nbsp;</o:p></span></b></p>
+						</td>
+						<td width=81 valign=top style='width:61.05pt;border:none;border-bottom:solid windowtext 1.0pt;
+						mso-border-bottom-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><b style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt;
+						font-family:"Times New Roman","serif";mso-fareast-font-family:SimSun;
+						mso-fareast-language:ES-CL'><o:p>&nbsp;</o:p></span></b></p>
+						</td>
+						<td width=74 valign=top style='width:55.8pt;border:none;border-bottom:solid windowtext 1.0pt;
+						mso-border-bottom-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><b style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt;
+						font-family:"Times New Roman","serif";mso-fareast-font-family:SimSun;
+						mso-fareast-language:ES-CL'><o:p>&nbsp;</o:p></span></b></p>
+						</td>
+						<td width=96 valign=top style='width:72.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+						mso-border-bottom-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><b style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt;
+						font-family:"Times New Roman","serif";mso-fareast-font-family:SimSun;
+						mso-fareast-language:ES-CL'><o:p>&nbsp;</o:p></span></b></p>
+						</td>
+						<td width=87 valign=top style='width:65.55pt;border:none;border-bottom:solid windowtext 1.0pt;
+						mso-border-bottom-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><b style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt;
+						font-family:"Times New Roman","serif";mso-fareast-font-family:SimSun;
+						mso-fareast-language:ES-CL'><o:p>&nbsp;</o:p></span></b></p>
+						</td>
+						<td width=79 valign=top style='width:59.55pt;border:none;border-bottom:solid windowtext 1.0pt;
+						mso-border-bottom-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><b style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt;
+						font-family:"Times New Roman","serif";mso-fareast-font-family:SimSun;
+						mso-fareast-language:ES-CL'><o:p>&nbsp;</o:p></span></b></p>
+						</td>
+						<td width=82 valign=top style='width:61.8pt;border:none;border-bottom:solid windowtext 1.0pt;
+						mso-border-bottom-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><b style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt;
+						font-family:"Times New Roman","serif";mso-fareast-font-family:SimSun;
+						mso-fareast-language:ES-CL'><o:p>&nbsp;</o:p></span></b></p>
+						</td>
+						<td width=91 valign=top style='width:68.55pt;border:none;border-bottom:solid windowtext 1.0pt;
+						mso-border-bottom-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><b style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt;
+						font-family:"Times New Roman","serif";mso-fareast-font-family:SimSun;
+						mso-fareast-language:ES-CL'><o:p>&nbsp;</o:p></span></b></p>
+						</td>
+						<td width=61 valign=top style='width:46.05pt;border:none;border-bottom:solid windowtext 1.0pt;
+						mso-border-bottom-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><b style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt;
+						font-family:"Times New Roman","serif";mso-fareast-font-family:SimSun;
+						mso-fareast-language:ES-CL'><o:p>&nbsp;</o:p></span></b></p>
+						</td>
+						<td width=61 valign=top style='width:46.05pt;border:none;border-bottom:solid windowtext 1.0pt;
+						mso-border-bottom-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><b style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt;
+						font-family:"Times New Roman","serif";mso-fareast-font-family:SimSun;
+						mso-fareast-language:ES-CL'><o:p>&nbsp;</o:p></span></b></p>
+						</td>
+					</tr>
+					<tr style='mso-yfti-irow:1'>
+						<td width=113 valign=top style='width:84.65pt;border:solid windowtext 1.0pt;
+						border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+						padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><span style='mso-bidi-font-size:10.0pt;font-family:"Times New Roman","serif";
+						mso-fareast-font-family:SimSun;mso-fareast-language:ES-CL'><o:p>&nbsp;</o:p></span></p>
+						</td>
+						<td width=73 valign=top style='width:55.05pt;border-top:none;border-left:
+						none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+						mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+						mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><b style='mso-bidi-font-weight:normal'><span style='mso-bidi-font-size:
+						10.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:SimSun;
+						mso-fareast-language:ES-CL'>Basófilos<o:p></o:p></span></b></p>
+						</td>
+						<td width=85 valign=top style='width:64.05pt;border-top:none;border-left:
+						none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+						mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+						mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><span class=SpellE><b style='mso-bidi-font-weight:normal'><span
+						style='mso-bidi-font-size:10.0pt;font-family:"Times New Roman","serif";
+						mso-fareast-font-family:SimSun;mso-fareast-language:ES-CL'>Eosinófilos</span></b></span><b
+						style='mso-bidi-font-weight:normal'><span style='mso-bidi-font-size:10.0pt;
+						font-family:"Times New Roman","serif";mso-fareast-font-family:SimSun;
+						mso-fareast-language:ES-CL'><o:p></o:p></span></b></p>
+						</td>
+						<td width=81 valign=top style='width:61.05pt;border-top:none;border-left:
+						none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+						mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+						mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><b style='mso-bidi-font-weight:normal'><span style='mso-bidi-font-size:
+						10.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:SimSun;
+						mso-fareast-language:ES-CL'>Mielocitos<o:p></o:p></span></b></p>
+						</td>
+						<td width=74 valign=top style='width:55.8pt;border-top:none;border-left:none;
+						border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+						mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+						mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><b style='mso-bidi-font-weight:normal'><span style='mso-bidi-font-size:
+						10.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:SimSun;
+						mso-fareast-language:ES-CL'>Juveniles<o:p></o:p></span></b></p>
+						</td>
+						<td width=96 valign=top style='width:72.3pt;border-top:none;border-left:none;
+						border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+						mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+						mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><b style='mso-bidi-font-weight:normal'><span style='mso-bidi-font-size:
+						10.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:SimSun;
+						mso-fareast-language:ES-CL'>Baciliformes<o:p></o:p></span></b></p>
+						</td>
+						<td width=87 valign=top style='width:65.55pt;border-top:none;border-left:
+						none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+						mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+						mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><b style='mso-bidi-font-weight:normal'><span style='mso-bidi-font-size:
+						10.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:SimSun;
+						mso-fareast-language:ES-CL'>Neutrófilos<o:p></o:p></span></b></p>
+						</td>
+						<td width=79 valign=top style='width:59.55pt;border-top:none;border-left:
+						none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+						mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+						mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><b style='mso-bidi-font-weight:normal'><span style='mso-bidi-font-size:
+						10.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:SimSun;
+						mso-fareast-language:ES-CL'>Linfocitos<o:p></o:p></span></b></p>
+						</td>
+						<td width=82 valign=top style='width:61.8pt;border-top:none;border-left:none;
+						border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+						mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+						mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><b style='mso-bidi-font-weight:normal'><span style='mso-bidi-font-size:
+						10.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:SimSun;
+						mso-fareast-language:ES-CL'>Monocitos<o:p></o:p></span></b></p>
+						</td>
+						<td width=91 valign=top style='width:68.55pt;border-top:none;border-left:
+						none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+						mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+						mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><b style='mso-bidi-font-weight:normal'><span style='mso-bidi-font-size:
+						10.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:SimSun;
+						mso-fareast-language:ES-CL'>Plasmocitos<o:p></o:p></span></b></p>
+						</td>
+						<td width=61 valign=top style='width:46.05pt;border-top:none;border-left:
+						none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+						mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+						mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><span class=SpellE><b style='mso-bidi-font-weight:normal'><span
+						style='mso-bidi-font-size:10.0pt;font-family:"Times New Roman","serif";
+						mso-fareast-font-family:SimSun;mso-fareast-language:ES-CL'>Blastos</span></b></span><b
+						style='mso-bidi-font-weight:normal'><span style='mso-bidi-font-size:10.0pt;
+						font-family:"Times New Roman","serif";mso-fareast-font-family:SimSun;
+						mso-fareast-language:ES-CL'><o:p></o:p></span></b></p>
+						</td>
+						<td width=61 valign=top style='width:46.05pt;border-top:none;border-left:
+						none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+						mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+						mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><span class=SpellE><b style='mso-bidi-font-weight:normal'><span
+						style='mso-bidi-font-size:10.0pt;font-family:"Times New Roman","serif";
+						mso-fareast-font-family:SimSun;mso-fareast-language:ES-CL'>Eritroblastos</span></b></span><b
+						style='mso-bidi-font-weight:normal'><span style='mso-bidi-font-size:10.0pt;
+						font-family:"Times New Roman","serif";mso-fareast-font-family:SimSun;
+						mso-fareast-language:ES-CL'><o:p></o:p></span></b></p>
+						</td>
+					</tr>
+					<tr style='mso-yfti-irow:2'>
+						<td width=113 valign=top style='width:84.65pt;border:solid windowtext 1.0pt;
+						border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+						padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><span style='mso-bidi-font-size:10.0pt;font-family:"Times New Roman","serif";
+						mso-fareast-font-family:SimSun;mso-fareast-language:ES-CL'>Referencia<o:p></o:p></span></p>
+						</td>
+						<td width=73 valign=top style='width:55.05pt;border-top:none;border-left:
+						none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+						mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+						mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+						text-align:center;line-height:normal'><span style='mso-bidi-font-size:10.0pt;
+						font-family:"Times New Roman","serif";mso-fareast-font-family:SimSun;
+						mso-fareast-language:ES-CL'>( 0 - 1 )<o:p></o:p></span></p>
+						</td>
+						<td width=85 valign=top style='width:64.05pt;border-top:none;border-left:
+						none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+						mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+						mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+						text-align:center;line-height:normal'><span style='mso-bidi-font-size:10.0pt;
+						font-family:"Times New Roman","serif";mso-fareast-font-family:SimSun;
+						mso-fareast-language:ES-CL'>( 0 - 5 )<o:p></o:p></span></p>
+						</td>
+						<td width=81 valign=top style='width:61.05pt;border-top:none;border-left:
+						none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+						mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+						mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+						text-align:center;line-height:normal'><span style='mso-bidi-font-size:10.0pt;
+						font-family:"Times New Roman","serif";mso-fareast-font-family:SimSun;
+						mso-fareast-language:ES-CL'>( 0 - 0 )<o:p></o:p></span></p>
+						</td>
+						<td width=74 valign=top style='width:55.8pt;border-top:none;border-left:none;
+						border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+						mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+						mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+						text-align:center;line-height:normal'><span style='mso-bidi-font-size:10.0pt;
+						font-family:"Times New Roman","serif";mso-fareast-font-family:SimSun;
+						mso-fareast-language:ES-CL'>( 0 - 0 )<o:p></o:p></span></p>
+						</td>
+						<td width=96 valign=top style='width:72.3pt;border-top:none;border-left:none;
+						border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+						mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+						mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+						text-align:center;line-height:normal'><span style='mso-bidi-font-size:10.0pt;
+						font-family:"Times New Roman","serif";mso-fareast-font-family:SimSun;
+						mso-fareast-language:ES-CL'>( 0 - 5 )<o:p></o:p></span></p>
+						</td>
+						<td width=87 valign=top style='width:65.55pt;border-top:none;border-left:
+						none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+						mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+						mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+						text-align:center;line-height:normal'><span style='mso-bidi-font-size:10.0pt;
+						font-family:"Times New Roman","serif";mso-fareast-font-family:SimSun;
+						mso-fareast-language:ES-CL'>( 40 - 75 )<o:p></o:p></span></p>
+						</td>
+						<td width=79 valign=top style='width:59.55pt;border-top:none;border-left:
+						none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+						mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+						mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+						text-align:center;line-height:normal'><span style='mso-bidi-font-size:10.0pt;
+						font-family:"Times New Roman","serif";mso-fareast-font-family:SimSun;
+						mso-fareast-language:ES-CL'>( 25 - 40 )<o:p></o:p></span></p>
+						</td>
+						<td width=82 valign=top style='width:61.8pt;border-top:none;border-left:none;
+						border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+						mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+						mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+						text-align:center;line-height:normal'><span style='mso-bidi-font-size:10.0pt;
+						font-family:"Times New Roman","serif";mso-fareast-font-family:SimSun;
+						mso-fareast-language:ES-CL'>( 2 - 8 )<o:p></o:p></span></p>
+						</td>
+						<td width=91 valign=top style='width:68.55pt;border-top:none;border-left:
+						none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+						mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+						mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+						text-align:center;line-height:normal'><span style='mso-bidi-font-size:10.0pt;
+						font-family:"Times New Roman","serif";mso-fareast-font-family:SimSun;
+						mso-fareast-language:ES-CL'>( 0 - 0 )<o:p></o:p></span></p>
+						</td>
+						<td width=61 valign=top style='width:46.05pt;border-top:none;border-left:
+						none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+						mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+						mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+						text-align:center;line-height:normal'><span style='mso-bidi-font-size:10.0pt;
+						font-family:"Times New Roman","serif";mso-fareast-font-family:SimSun;
+						mso-fareast-language:ES-CL'>( 0 - 0 )<o:p></o:p></span></p>
+						</td>
+						<td width=61 valign=top style='width:46.05pt;border-top:none;border-left:
+						none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+						mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+						mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+						text-align:center;line-height:normal'><span style='mso-bidi-font-size:10.0pt;
+						font-family:"Times New Roman","serif";mso-fareast-font-family:SimSun;
+						mso-fareast-language:ES-CL'>( 0 - 0 )<o:p></o:p></span></p>
+						</td>
+					</tr>
+					<tr style='mso-yfti-irow:3;mso-yfti-lastrow:yes'>
+						<td width=113 valign=top style='width:84.65pt;border:solid windowtext 1.0pt;
+						border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+						padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><span style='mso-bidi-font-size:10.0pt;font-family:"Times New Roman","serif";
+						mso-fareast-font-family:SimSun;mso-fareast-language:ES-CL'>Porcentaje (%)<o:p></o:p></span></p>
+						</td>
+						<td width=73 valign=top style='width:55.05pt;border-top:none;border-left:
+						none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+						mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+						mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><span style='mso-bidi-font-size:10.0pt;font-family:"Times New Roman","serif";
+						mso-fareast-font-family:SimSun;mso-fareast-language:ES-CL'><o:p>&nbsp;<div id="Bas" class="Count">0</div></o:p></span></p>
+						</td>
+						<td width=85 valign=top style='width:64.05pt;border-top:none;border-left:
+						none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+						mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+						mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><span style='mso-bidi-font-size:10.0pt;font-family:"Times New Roman","serif";
+						mso-fareast-font-family:SimSun;mso-fareast-language:ES-CL'><o:p>&nbsp;<div id="Eos" class="Count">0</div></o:p></span></p>
+						</td>
+						<td width=81 valign=top style='width:61.05pt;border-top:none;border-left:
+						none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+						mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+						mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><span style='mso-bidi-font-size:10.0pt;font-family:"Times New Roman","serif";
+						mso-fareast-font-family:SimSun;mso-fareast-language:ES-CL'><o:p>&nbsp;<div id="Mie" class="Count">0</div></o:p></span></p>
+						</td>
+						<td width=74 valign=top style='width:55.8pt;border-top:none;border-left:none;
+						border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+						mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+						mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><span style='mso-bidi-font-size:10.0pt;font-family:"Times New Roman","serif";
+						mso-fareast-font-family:SimSun;mso-fareast-language:ES-CL'><o:p>&nbsp;<div id="Juv" class="Count">0</div></o:p></span></p>
+						</td>
+						<td width=96 valign=top style='width:72.3pt;border-top:none;border-left:none;
+						border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+						mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+						mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><span style='mso-bidi-font-size:10.0pt;font-family:"Times New Roman","serif";
+						mso-fareast-font-family:SimSun;mso-fareast-language:ES-CL'><o:p>&nbsp;<div id="Bac" class="Count">0</div></o:p></span></p>
+						</td>
+						<td width=87 valign=top style='width:65.55pt;border-top:none;border-left:
+						none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+						mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+						mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><span style='mso-bidi-font-size:10.0pt;font-family:"Times New Roman","serif";
+						mso-fareast-font-family:SimSun;mso-fareast-language:ES-CL'><o:p>&nbsp;<div id="Neu" class="Count">0</div></o:p></span></p>
+						</td>
+						<td width=79 valign=top style='width:59.55pt;border-top:none;border-left:
+						none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+						mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+						mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><span style='mso-bidi-font-size:10.0pt;font-family:"Times New Roman","serif";
+						mso-fareast-font-family:SimSun;mso-fareast-language:ES-CL'><o:p>&nbsp;<div id="Lin" class="Count">0</div></o:p></span></p>
+						</td>
+						<td width=82 valign=top style='width:61.8pt;border-top:none;border-left:none;
+						border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+						mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+						mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><span style='mso-bidi-font-size:10.0pt;font-family:"Times New Roman","serif";
+						mso-fareast-font-family:SimSun;mso-fareast-language:ES-CL'><o:p>&nbsp;<div id="Mon" class="Count">0</div></o:p></span></p>
+						</td>
+						<td width=91 valign=top style='width:68.55pt;border-top:none;border-left:
+						none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+						mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+						mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><span style='mso-bidi-font-size:10.0pt;font-family:"Times New Roman","serif";
+						mso-fareast-font-family:SimSun;mso-fareast-language:ES-CL'><o:p>&nbsp;<div id="Plas" class="Count">0</div></o:p></span></p>
+						</td>
+						<td width=61 valign=top style='width:46.05pt;border-top:none;border-left:
+						none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+						mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+						mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><span style='mso-bidi-font-size:10.0pt;font-family:"Times New Roman","serif";
+						mso-fareast-font-family:SimSun;mso-fareast-language:ES-CL'><o:p>&nbsp;<div id="Blas" class="Count">0</div></o:p></span></p>
+						</td>
+						<td width=61 valign=top style='width:46.05pt;border-top:none;border-left:
+						none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+						mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+						mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><span style='mso-bidi-font-size:10.0pt;font-family:"Times New Roman","serif";
+						mso-fareast-font-family:SimSun;mso-fareast-language:ES-CL'><o:p>&nbsp;<div id="eBlas" class="Count">0</div></o:p></span></p>
+						</td>
+					</tr>
+				</table>
+				</div>
+				<div id= "Table2" style="display:none;">
+				<table  class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+				style='border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+				mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
+					<tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+						<td width=113 valign=top style='width:84.65pt;border:none;border-bottom:solid windowtext 1.0pt;
+						mso-border-bottom-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><span style='font-size:10.0pt;font-family:"Times New Roman","serif";
+						mso-fareast-font-family:SimSun;mso-fareast-language:ES-CL'><o:p>&nbsp;</o:p></span></p>
+						</td>
+						<td width=73 valign=top style='width:55.05pt;border:none;border-bottom:solid windowtext 1.0pt;
+						mso-border-bottom-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><b style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt;
+						font-family:"Times New Roman","serif";mso-fareast-font-family:SimSun;
+						mso-fareast-language:ES-CL'><o:p>&nbsp;</o:p></span></b></p>
+						</td>
+						<td width=85 valign=top style='width:64.05pt;border:none;border-bottom:solid windowtext 1.0pt;
+						mso-border-bottom-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><b style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt;
+						font-family:"Times New Roman","serif";mso-fareast-font-family:SimSun;
+						mso-fareast-language:ES-CL'><o:p>&nbsp;</o:p></span></b></p>
+						</td>
+						<td width=81 valign=top style='width:61.05pt;border:none;border-bottom:solid windowtext 1.0pt;
+						mso-border-bottom-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><b style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt;
+						font-family:"Times New Roman","serif";mso-fareast-font-family:SimSun;
+						mso-fareast-language:ES-CL'><o:p>&nbsp;</o:p></span></b></p>
+						</td>
+						
+					</tr>
+					<tr style='mso-yfti-irow:1'>
+						<td width=113 valign=top style='width:84.65pt;border:solid windowtext 1.0pt;
+						border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+						padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><span style='mso-bidi-font-size:10.0pt;font-family:"Times New Roman","serif";
+						mso-fareast-font-family:SimSun;mso-fareast-language:ES-CL'><o:p>&nbsp;</o:p></span></p>
+						</td>
+						<td width=73 valign=top style='width:55.05pt;border-top:none;border-left:
+						none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+						mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+						mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><b style='mso-bidi-font-weight:normal'><span style='mso-bidi-font-size:
+						10.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:SimSun;
+						mso-fareast-language:ES-CL'>Eritrocitos<o:p></o:p></span></b></p>
+						</td>
+						<td width=85 valign=top style='width:64.05pt;border-top:none;border-left:
+						none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+						mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+						mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><span class=SpellE><b style='mso-bidi-font-weight:normal'><span
+						style='mso-bidi-font-size:10.0pt;font-family:"Times New Roman","serif";
+						mso-fareast-font-family:SimSun;mso-fareast-language:ES-CL'>Reticulocitos</span></b></span><b
+						style='mso-bidi-font-weight:normal'><span style='mso-bidi-font-size:10.0pt;
+						font-family:"Times New Roman","serif";mso-fareast-font-family:SimSun;
+						mso-fareast-language:ES-CL'><o:p></o:p></span></b></p>
+						</td>
+						<td width=81 valign=top style='width:61.05pt;border-top:none;border-left:
+						none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+						mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+						mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><b style='mso-bidi-font-weight:normal'><span style='mso-bidi-font-size:
+						10.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:SimSun;
+						mso-fareast-language:ES-CL'>Eritroblastos<o:p></o:p></span></b></p>
+						</td>
+						
+					</tr>
+					<tr style='mso-yfti-irow:3;mso-yfti-lastrow:yes'>
+						<td width=113 valign=top style='width:84.65pt;border:solid windowtext 1.0pt;
+						border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+						padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><span style='mso-bidi-font-size:10.0pt;font-family:"Times New Roman","serif";
+						mso-fareast-font-family:SimSun;mso-fareast-language:ES-CL'>Recuento<o:p></o:p></span></p>
+						</td>
+						<td width=73 valign=top style='width:55.05pt;border-top:none;border-left:
+						none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+						mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+						mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><span style='mso-bidi-font-size:10.0pt;font-family:"Times New Roman","serif";
+						mso-fareast-font-family:SimSun;mso-fareast-language:ES-CL'><o:p>&nbsp;<div id="Eritro" class="Count">0</div></o:p></span></p>
+						</td>
+						<td width=85 valign=top style='width:64.05pt;border-top:none;border-left:
+						none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+						mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+						mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><span style='mso-bidi-font-size:10.0pt;font-family:"Times New Roman","serif";
+						mso-fareast-font-family:SimSun;mso-fareast-language:ES-CL'><o:p>&nbsp;<div id="Reticul" class="Count">0</div></o:p></span></p>
+						</td>
+						<td width=81 valign=top style='width:61.05pt;border-top:none;border-left:
+						none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+						mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+						mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+						<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+						normal'><span style='mso-bidi-font-size:10.0pt;font-family:"Times New Roman","serif";
+						mso-fareast-font-family:SimSun;mso-fareast-language:ES-CL'><o:p>&nbsp;<div id="eBlasto" class="Count">0</div></o:p></span></p>
+						</td>
+						
+					</tr>
+				</table>
+				</div>
+				<div>&nbsp;</div>
+				<div>&nbsp;</div>
+				<div>
+					<button type="button" id="start" class="">Restart!</button>
+					
+					<button type="button" id="print" class=""><i class="glyphicon glyphicon-print"></i> Imprimir</button>
+
+				</div>
+				<div>&nbsp;</div>
+			</div>
+		</div>
 	</body>
 </html>
