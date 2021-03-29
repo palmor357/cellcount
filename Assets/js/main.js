@@ -120,8 +120,7 @@ $(document).ready(function(){
 					        $("#eBlasto").html(function(i, val) { return +val+1 });
 					    });
 					});
-		</script>
-		<script type="text/javascript">
+
 					function openNav() {
 					    document.getElementById("mySidenav").style.width = "270px";
 					    document.getElementById("main").style.marginLeft = "270px";
