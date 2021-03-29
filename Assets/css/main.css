@@ -15,7 +15,8 @@
 			        font-family:Verdana,Helvetica;
 			        font-weight:bold;
 			        color:white;
-			        background:url("https://palmor357.github.io/cellcount/images/baso.png") no-repeat scroll transparent;
+			        background:url("https://palmor357.github.io/cellcount/images/baso.png") no-repeat scroll transparent top left;
+		                padding: 2px 8px;
 			        border:2px;
 			        border-style: solid;
 			        border-color: #000000 #000000;
