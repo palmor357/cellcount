@@ -34,7 +34,10 @@ $(document).ready(function(){
 											 var num2 = 1 + (45 - HTOpac) * 0.05
 											 var num3 = num1/num2
 											 var n = num3.toFixed(2);
-											 $("#resIPR").html(n);
+									if ($("#Reticul").html()>0){
+									    $("#resIPR").html(n);
+									}
+											
 									}
 					    });
 					});
