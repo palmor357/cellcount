@@ -7,6 +7,8 @@ $(document).ready(function(){
 							$("#Table1").show();
 							$("#Table2").hide();
 							$("#btnreticu").hide();
+						    	$("#RecTable").hide();
+						        $("#resIPR").hide();
 					        document.getElementById("webcam").style.display= "none";
 					        });
 					});
