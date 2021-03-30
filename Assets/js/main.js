@@ -9,6 +9,7 @@ $(document).ready(function(){
 							$("#btnreticu").hide();
 						    	$("#RecTable").hide();
 						        $("#resIPR").hide();
+    						        $("#IPR").hide();
 					        document.getElementById("webcam").style.display= "none";
 					        });
 					});
@@ -39,6 +40,7 @@ $(document).ready(function(){
 									    
 									}
 											$("#resIPR").hide();
+									                $("#IPR").hide();
 									}
 					    });
 					});
