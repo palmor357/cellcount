@@ -21,6 +21,8 @@ $(document).ready(function(){
 										audio2.play();
 									    alert("Recuento Finalizado");
 									     var total = $("#MaxCount").val();
+									 	$("#Table1").show();
+
 									     // sacar recuento reticulocitos
 											 var HTOpac = $("#HTO").val();
 											 var retirecuento = $("#Reticul").html();
