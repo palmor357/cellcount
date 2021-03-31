@@ -37,7 +37,7 @@ $(document).ready(function () {
             var num3 = num1 / num2
             var n = num3.toFixed(2);
             $("#resIPR").html(n);
-            if (retirecuento = 0) {
+            if ($("#Reticul").html() = "0") {
                 $("#resIPR").hide();
                 $("#IPR").hide();
             }
