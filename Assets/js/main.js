@@ -37,13 +37,13 @@ $(document).ready(function () {
             var num3 = num1 / num2
             var n = num3.toFixed(2);
             $("#resIPR").html(n);
-            if ($("#Reticul").html() = "0") {
-                $("#resIPR").hide();
-                $("#IPR").hide();
-            }
-            else{
+            if ($("#Reticul").html() > 0) {
                 $("#resIPR").show();
                 $("#IPR").show();
+            }
+            else{
+                $("#resIPR").hide();
+                $("#IPR").hide();
             }
            
         }
